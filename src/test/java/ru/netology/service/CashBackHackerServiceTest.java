@@ -2,7 +2,7 @@ package ru.netology.service;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CashBackHackerServiceTest {
     CashBackHackerService service = new CashBackHackerService();
@@ -26,6 +26,31 @@ public class CashBackHackerServiceTest {
 
     @Test
     public void testRemainGreaterThanBoundary() {
+        int amount = 1500;
+        int expected = 500;
+        int actual = service.remain(amount);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+
+    public void testRemainLessThanBoundaryJunit5() {
+        int amount = 500;
+        int expected = 500;
+        int actual = service.remain(amount);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testRemainEqualToBoundaryJunit5() {
+        int amount = 1000;
+        int expected = 0;
+        int actual = service.remain(amount);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testRemainGreaterThanBoundaryJunit5() {
         int amount = 1500;
         int expected = 500;
         int actual = service.remain(amount);
